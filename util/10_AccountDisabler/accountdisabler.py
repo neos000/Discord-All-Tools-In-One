@@ -13,8 +13,9 @@ def disable():
     headers = {'Authorization': usertoken, 'Content-Type': 'application/json'}
     res = requests.get('https://discord.com/api/v8/users/@me', headers=headers).json()
     print(f"\n{y}[{Fore.LIGHTGREEN_EX }!{y}]{w} User Details: {res['username']}#{res['discriminator']} - ({res['id']})")
-    input(f"{y}[{b}#{y}]{w} If These Details Are Correct Press Enter! (This Will Start Disbaling The Account)")
+    input(f"{y}[{b}#{y}]{w} If These Details Are Correct Press Enter! (This Will Start Disabling The Account)")
     print()
+    
     for username in open('util/11_AccountDisabler/users.txt', 'r').read().splitlines():
         try:
             usr = username.split('#')
@@ -22,7 +23,8 @@ def disable():
             print(f"\t{y}[{Fore.LIGHTGREEN_EX }!{y}]{w} {usr[0]}#{usr[1]} Added!")
         except:
             print(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Something Went Wrong!")
-    print(f"\n\n{y}[{Fore.LIGHTGREEN_EX }!{y}]{w} Account successfully disable")
+    
+    print(f"\n\n{y}[{Fore.LIGHTGREEN_EX }!{y}]{w} Account successfully disabled!")
     input(f"""\n{y}[{b}#{y}]{w} Press ENTER to exit""")
     main()
 
